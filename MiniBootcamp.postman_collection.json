@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "77347d4b-244a-4388-a0c2-0ea43b1b4572",
+		"name": "MiniBootcamp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45573671",
+		"_collection_link": "https://dwitiantangguhedinugraha.postman.co/workspace/Dwitian-Tangguh-Edinugraha's-Wo~24245108-44e5-4711-8878-464c47e606f8/collection/45573671-77347d4b-244a-4388-a0c2-0ea43b1b4572?action=share&source=collection_link&creator=45573671"
+	},
+	"item": [
+		{
+			"name": "POST Bank account data request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status Code 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response tidak kosong\", function () {\r",
+							"    pm.expect(pm.response.text()).to.not.be.empty;\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic aWx1bWFfZGV2ZWxvcG1lbnRfRlg0ZjBNNXN4RGdrNXFGeVpuazYwWmVuZ0FmQTlvMzF4M2VjZDI5dmloamM0Vmh5SjhGY2xaaEhqanc6",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"bank_account_number\": \"12345670\",\r\n  \"bank_code\": \"BCA\",\r\n  \"given_name\": \"FIRA DIYANKA\",\r\n  \"surname\": \"FIRA DIYANKA\",\r\n  \"reference_id\": \"testing123-456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.iluma.ai/v1.1/identity/bank_account_data_requests",
+					"protocol": "https",
+					"host": [
+						"api",
+						"iluma",
+						"ai"
+					],
+					"path": [
+						"v1.1",
+						"identity",
+						"bank_account_data_requests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Bank account data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status Code 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response tidak kosong\", function () {\r",
+							"    pm.expect(pm.response.text()).to.not.be.empty;\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic aWx1bWFfZGV2ZWxvcG1lbnRfRlg0ZjBNNXN4RGdrNXFGeVpuazYwWmVuZ0FmQTlvMzF4M2VjZDI5dmloamM0Vmh5SjhGY2xaaEhqanc6",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.iluma.ai/v1.1/identity/bank_account_data_requests/bknv_6a2963f06540322bbff05a51",
+					"protocol": "https",
+					"host": [
+						"api",
+						"iluma",
+						"ai"
+					],
+					"path": [
+						"v1.1",
+						"identity",
+						"bank_account_data_requests",
+						"bknv_6a2963f06540322bbff05a51"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
