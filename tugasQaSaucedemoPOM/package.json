@@ -1,0 +1,23 @@
+{
+  "name": "tugasqasaucedemopom",
+  "version": "1.0.0",
+  "description": "Automation Testing SauceDemo menggunakan Selenium, Mocha, POM dan Visual Regression",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha specs/*.spec.js --timeout 60000 --reporter mochawesome",
+    "test:login": "mocha specs/Login.spec.js --timeout 60000 --reporter mochawesome"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "pixelmatch": "^7.2.0",
+    "pngjs": "^7.0.0",
+    "selenium-webdriver": "^4.45.0"
+  },
+  "devDependencies": {
+    "mocha": "^11.7.6",
+    "mochawesome": "^7.1.4"
+  }
+}
