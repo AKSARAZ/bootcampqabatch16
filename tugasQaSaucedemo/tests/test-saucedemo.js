@@ -3,9 +3,30 @@ const assert = require("assert");
 
 describe("SauceDemo Test", function () {
   let driver;
-  it("Sukses Login dengan kredensial yang valid", async function () {
-    driver = await new Builder().forBrowser("chrome").build();
 
+  // Dijalankan sekali sebelum seluruh test dimulai
+  before(async function () {
+    driver = await new Builder().forBrowser("chrome").build();
+    console.log("Browser berhasil dibuka");
+  });
+
+  // Dijalankan sebelum setiap test case
+  beforeEach(async function () {
+    console.log("Memulai test case: " + this.currentTest.title);
+  });
+
+  // Dijalankan setelah setiap test case
+  afterEach(async function () {
+    console.log("Selesai test case: " + this.currentTest.title);
+  });
+
+  // Dijalankan sekali setelah seluruh test selesai
+  after(async function () {
+    await driver.quit();
+    console.log("Browser berhasil ditutup");
+  });
+
+  it("Sukses Login dengan kredensial yang valid", async function () {
     await driver.get("https://www.saucedemo.com");
 
     let inputUsername = await driver.findElement(
@@ -52,7 +73,5 @@ describe("SauceDemo Test", function () {
     assert.strictEqual(namaProduct, "Sauce Labs Backpack");
 
     await firstProductName.isDisplayed();
-
-    await driver.quit();
   });
 });
